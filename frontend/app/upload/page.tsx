@@ -7,25 +7,11 @@ export default function UploadFile(){
 
     const [files, setFiles] = useState<File[]>([]);
 
-    // const handleFileInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    //     setFiles(Array.from(event.target.files || []));
-    // }
-
-    ////////////
     const [preview, setPreview] = useState<string | ArrayBuffer | null>(null);
 
     const onDrop = useCallback((acceptedFiles: File[]) => {
         setFiles(prevFiles => [...prevFiles, ...acceptedFiles]);
 
-        // Preview the first file (optional)
-        // if (acceptedFiles.length > 0) {
-        //     const file = acceptedFiles[0];
-        //     const reader = new FileReader();
-        //     reader.onload = () => {
-        //         setPreview(reader.result);
-        //     };
-        //     reader.readAsDataURL(file);
-        // }
     }, []);
 
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
