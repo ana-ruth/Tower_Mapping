@@ -1,8 +1,10 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import UploadFile
 
 from towerProcessor import *
+from reportGenerator import *
+
 
 app = FastAPI()
 
@@ -18,8 +20,12 @@ def get_data():
 @app.post('/uploadfile/')
 async def create_upload_file(file_uploads: list[UploadFile]):
 
-    validate_columns(file_uploads)
-    return {"filenames": [f.filename for f in file_uploads]}
+    try:
+        df = validate_columns(file_uploads)
+        report = generate_report(df)
+        return {"filenames": [f.filename for f in file_uploads]}
+    except Exception as e:
+        raise HTTPException(status_code = 400, detail =str(e))
     
 
 

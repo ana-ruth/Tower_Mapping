@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 COLUMNS = {
     "tower_name": ["tower", "tower_name", "site", "name", "tower name", "towers"],
     "latitude": [ "lat", "latitude", "latitudes"],
@@ -12,8 +11,11 @@ COLUMNS = {
 def validate_columns(file_uploads):
 
     print("Validating columns for uploaded files...")
+    df = pd.DataFrame()
+
     for file_upload in file_uploads:
 
+        #Check file type
         if file_upload.filename.endswith(".csv"):
             df = pd.read_csv(file_upload.file)
         elif file_upload.filename.endswith((".xls", ".xlsx")):
@@ -22,6 +24,7 @@ def validate_columns(file_uploads):
             print(f"Unsupported file type: {file_upload.filename}")
             continue
 
+        #Standardize column names to those in required_cols
         df = standardize_columns(df, COLUMNS)
 
         required_cols = ["tower_name", "latitude", "longitude", "address"]
@@ -30,10 +33,9 @@ def validate_columns(file_uploads):
                 raise ValueError(f"Missing required column: {col}")
 
         print(df['latitude'])
-
-
+    
         
-    return "DONE"
+    return df
 
 def standardize_columns(df, aliases):
     new_columns = {}
@@ -44,3 +46,6 @@ def standardize_columns(df, aliases):
                 new_columns[col] = standard_name
                 break  # Map only once
     return df.rename(columns=new_columns)
+
+
+    
