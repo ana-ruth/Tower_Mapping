@@ -1,0 +1,11 @@
+# Python (backend)
+__pycache__/
+.env
+*.env
+**/.env
+backend/app/.env
+
+venv/
+.venv/
+
+backend/app/sample_report.docx

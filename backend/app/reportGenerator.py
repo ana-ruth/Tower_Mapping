@@ -19,3 +19,8 @@ def tower_summary(row):
     document.add_paragraph("Latitude: "+str(row["latitude"]))
 
     document.add_paragraph("Longitude: "+ str(row["longitude"]))
+
+    map_img = map_generator(row["latitude"], row["longitude"])
+    
+    document.add_picture(map_img)
+
