@@ -7,7 +7,6 @@ export default function UploadFile(){
 
     const [files, setFiles] = useState<File[]>([]);
 
-    const [preview, setPreview] = useState<string | ArrayBuffer | null>(null);
 
     const onDrop = useCallback((acceptedFiles: File[]) => {
         setFiles(prevFiles => [...prevFiles, ...acceptedFiles]);
