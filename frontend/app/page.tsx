@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import Ping from "./components/PingTester"
 
 export default function Home() {
   return (
@@ -11,7 +10,6 @@ export default function Home() {
 
         <h1 className = "text-6xl">Automated Tower Mapping</h1>
 
-        <Ping/>
 
 
       </main>
