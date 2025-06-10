@@ -2,8 +2,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import UploadFile
 
-from towerProcessor import *
-from reportGenerator import *
+from .towerProcessor import *
+from .reportGenerator import *
 
 
 app = FastAPI()

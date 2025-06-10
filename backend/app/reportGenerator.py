@@ -1,5 +1,5 @@
 from docx import Document
-from mapFetcher import *    
+from .mapFetcher import *    
 
 document = Document()
 
