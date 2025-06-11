@@ -5,8 +5,18 @@ from fastapi import UploadFile
 from .towerProcessor import *
 from .reportGenerator import *
 
+#from towerProcessor import *
+#from reportGenerator import *
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000", "https://tower-mapping.vercel.app"],  # Next.js default port
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")
@@ -29,10 +39,3 @@ async def create_upload_file(file_uploads: list[UploadFile]):
     
 
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://tower-mapping.vercel.app/"],  # Next.js default port
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
