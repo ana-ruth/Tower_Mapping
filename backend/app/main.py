@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi import UploadFile
+from fastapi import UploadFile, File
 from typing import List
 
 
