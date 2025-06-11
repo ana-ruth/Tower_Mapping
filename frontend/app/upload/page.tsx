@@ -35,7 +35,7 @@ export default function UploadFile(){
         })
 
         try{
-            const endpoint = "http://localhost:8000/uploadfile/"
+            const endpoint = "https://towermapping-h8ecgsdghyegfwbx.canadacentral-01.azurewebsites.net/uploadfile/"
             const response = await fetch(endpoint, {
                 method: "POST", 
                 body: formData
