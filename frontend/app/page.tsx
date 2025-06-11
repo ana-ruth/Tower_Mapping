@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Ping from "components/PingTester.tsx"
 
 
 export default function Home() {
@@ -11,7 +10,6 @@ export default function Home() {
 
         <h1 className = "text-6xl">Automated Tower Mapping</h1>
 
-        <Ping/>
 
 
       </main>
