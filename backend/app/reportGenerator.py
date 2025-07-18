@@ -1,5 +1,7 @@
 from docx import Document
-from .mapFetcher import *    
+
+from .mapFetcher import *    #relative import for azure
+
 #from mapFetcher import *
 
 document = Document()
@@ -21,7 +23,15 @@ def tower_summary(row):
 
     document.add_paragraph("Longitude: "+ str(row["longitude"]))
 
-    map_img = map_generator(row["latitude"], row["longitude"])
+    print("creating map")
+    try:    
+        map_img = map_generator(row["latitude"], row["longitude"])
     
-    document.add_picture(map_img)
+
+        document.add_picture(map_img)
+    finally:
+        print("Map failed")
+
+    
+
 

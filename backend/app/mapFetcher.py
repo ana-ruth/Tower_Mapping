@@ -3,7 +3,8 @@ from dotenv import load_dotenv
 import requests
 from io import BytesIO
 
-load_dotenv()
+#Get Key
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '.env'))
 
 GOOGLE_MAPS_API_KEY = os.getenv("GOOGLE_MAPS_API_KEY")
 

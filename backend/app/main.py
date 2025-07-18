@@ -3,9 +3,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi import UploadFile, File
 from typing import List
 
-
+#relative imports for azure
 from .towerProcessor import *
 from .reportGenerator import *
+
 
 #from towerProcessor import *
 #from reportGenerator import *
