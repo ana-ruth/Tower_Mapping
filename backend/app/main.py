@@ -15,7 +15,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://tower-mapping.vercel.app"],  # Next.js default port
+    allow_origins=["http://localhost:3000", "https://tower-mapping.vercel.app", "https://tower-mapping.vercel.app/upload"],  # Next.js default port
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
